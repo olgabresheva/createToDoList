@@ -10,6 +10,7 @@ function TaskList(props) {
                     <TaskItem item={el}
                               onTaskStateChangeToggle={props.onTaskStateChangeToggle}
                               deleteTask={props.deleteTask}
+                              taskSave={props.taskSave}
                     />
                 </li>)}
             </ul>

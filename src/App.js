@@ -33,12 +33,22 @@ function App() {
         setTasks(updatedTaskList);
     }
 
+    const taskSave = (id, taskNewName) => {
+        const updatedTaskList = tasks.map(el => {
+            if(el.id === id) return ({...el, name: taskNewName})
+            else return el
+        })
+        setTasks(updatedTaskList);
+    }
+
     return (
         <div className="App">
             <TaskCreateForm addNewTask={addNewTask}/>
             <TaskList tasks={tasks}
                       onTaskStateChangeToggle={onTaskStateChangeToggle}
                       deleteTask={deleteTask}
+                      taskSave={taskSave}
+
             />
         </div>
     );

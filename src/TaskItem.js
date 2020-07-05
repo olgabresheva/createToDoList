@@ -4,26 +4,30 @@ import './App.css';
 function TaskItem(props) {
 
     const [editMode, setEditMode] = useState(false);
-    const [taskEdit, setTaskEdit] = useState({});
+    // const [taskEdit, setTaskEdit] = useState({});
+    const [taskNameEditValue, setTaskNameEditValue] = useState(props.item.name);
 
-    const taskNameEdit = (e) => {
+    const onTaskEdit = () => {
         setEditMode(true);
-        setTaskEdit({...taskEdit, name: e.target.value})
     }
 
-    const taskSave = () => {
-        props.taskNameEdit(taskEdit);
+    const onTaskNameEdit = (e) => {
+        setTaskNameEditValue(e.target.value);
+    }
 
+    const onTaskSave = () => {
+        props.taskSave(props.item.id, taskNameEditValue);
+        setEditMode(false);
     }
 
     return (
         <div className="App-TaskItem">
             {editMode
                 ? <>
-                    <input type="text" value={props.item.name} onChange={taskNameEdit}/>
-                    <button onClick={taskSave}>Save</button>
+                    <input type="text" value={taskNameEditValue} onChange={onTaskNameEdit}/>
+                    <button onClick={onTaskSave}>Save</button>
                 </>
-                : <span onClick={taskNameEdit}>{props.item.name}</span>
+                : <span onClick={onTaskEdit}>{props.item.name}</span>
             }
 
 
