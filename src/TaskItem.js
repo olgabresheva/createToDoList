@@ -4,32 +4,25 @@ import './App.css';
 function TaskItem(props) {
 
     const [editMode, setEditMode] = useState(false);
-    // const [taskEdit, setTaskEdit] = useState({});
-    const [taskNameEditValue, setTaskNameEditValue] = useState(props.item.name);
-
-    const onTaskEdit = () => {
-        setEditMode(true);
-    }
-
-    const onTaskNameEdit = (e) => {
-        setTaskNameEditValue(e.target.value);
-    }
+    const [taskEditNameInput, setTaskEditNameInput] = useState(props.item.name);
 
     const onTaskSave = () => {
-        props.taskSave(props.item.id, taskNameEditValue);
+        props.taskSave(props.item.id, taskEditNameInput);
         setEditMode(false);
     }
 
+
     return (
         <div className="App-TaskItem">
+
             {editMode
                 ? <>
-                    <input type="text" value={taskNameEditValue} onChange={onTaskNameEdit}/>
+                    <input type="text" value={taskEditNameInput} onChange={e => setTaskEditNameInput(e.target.value)}/>
                     <button onClick={onTaskSave}>Save</button>
                 </>
-                : <span onClick={onTaskEdit}>{props.item.name}</span>
-            }
+                : <span onClick={() => setEditMode(true)}>{props.item.name}</span>
 
+            }
 
             <button onClick={() => props.onTaskStateChangeToggle(props.item.id)}>
                 {props.item.done ? 'Done' : 'To Be Done'}

@@ -33,13 +33,14 @@ function App() {
         setTasks(updatedTaskList);
     }
 
-    const taskSave = (id, taskNewName) => {
+    const taskSave = (id, newTaskName) => {
         const updatedTaskList = tasks.map(el => {
-            if(el.id === id) return ({...el, name: taskNewName})
+            if (el.id === id) return ({...el, name: newTaskName})
             else return el
         })
         setTasks(updatedTaskList);
     }
+
 
     return (
         <div className="App">
