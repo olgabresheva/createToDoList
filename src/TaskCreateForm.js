@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function TaskCreateForm(props) {
 
@@ -19,11 +20,15 @@ function TaskCreateForm(props) {
 
     return (
 
-        <div className="App-TaskCreateForm">
-            <input type="text" value={newTaskInput} onChange={newSetTaskName}/>
-            <button disabled={addTaskBtnDisabled} onClick={addNewTask}>
-                Add Task
-            </button>
+        <div>
+            <label htmlFor="exampleFormControlInput1"><strong>Your To Do List</strong></label><br/>
+            <form className="form-inline">
+                <input className="form-control" placeholder="enter your task" type="text" value={newTaskInput}
+                       onChange={newSetTaskName}/>
+                <button type="submit" className="btn btn-info" disabled={addTaskBtnDisabled} onClick={addNewTask}>
+                    Add Task
+                </button>
+            </form>
         </div>
     );
 }

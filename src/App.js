@@ -43,7 +43,7 @@ function App() {
 
 
     return (
-        <div className="App">
+        <div className="container">
             <TaskCreateForm addNewTask={addNewTask}/>
             <TaskList tasks={tasks}
                       onTaskStateChangeToggle={onTaskStateChangeToggle}
