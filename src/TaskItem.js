@@ -49,7 +49,7 @@ function TaskItem(props) {
                            onChange={e => setTaskEditNameInput(e.target.value)}/>
                     <button className="btn btn-outline-secondary" onClick={onTaskSave}>Save</button>
                 </>
-                : <span className="form-control" onClick={() => setEditMode(true)}>{props.item.name}</span>
+                : <span className="form-control" onDoubleClick={() => setEditMode(true)}>{props.item.name}</span>
 
             }
             <div className="input-group-append" id="button-addon">
