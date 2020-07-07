@@ -6,7 +6,7 @@ import TaskItem from "./TaskItem";
 function TaskList(props) {
     return (
         <div className="App-TaskList">
-            <ul>
+            <ul className="list-unstyled">
                 {props.tasks.map(el => <li key={el.id}>
                     <TaskItem item={el}
                               onTaskStateChangeToggle={props.onTaskStateChangeToggle}
@@ -15,7 +15,6 @@ function TaskList(props) {
                     />
                 </li>)}
             </ul>
-
         </div>
     );
 }

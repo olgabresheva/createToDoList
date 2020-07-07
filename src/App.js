@@ -5,9 +5,9 @@ import TaskList from "./TaskList";
 import {uuid} from "uuidv4";
 
 const initialList = [
-    {id: uuid(), name: 'Take -1', done: false},
-    {id: uuid(), name: 'Take -2', done: true},
-    {id: uuid(), name: 'Take -3', done: false},
+    {id: uuid(), name: 'Clean dishes', done: false},
+    {id: uuid(), name: 'Start Kanban board', done: true},
+    {id: uuid(), name: 'Sleep', done: false},
 ]
 
 function App() {
@@ -45,6 +45,7 @@ function App() {
     return (
         <div className="container">
             <TaskCreateForm addNewTask={addNewTask}/>
+            <hr/>
             <TaskList tasks={tasks}
                       onTaskStateChangeToggle={onTaskStateChangeToggle}
                       deleteTask={deleteTask}
